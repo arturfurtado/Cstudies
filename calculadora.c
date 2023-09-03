@@ -1,82 +1,61 @@
 #include <stdio.h>
 
-int numero1;
-int numero2;
-int resultado;
+int main() {
+    int numero_valores;
+    printf("Quantos valores você deseja utilizar? ");
+    scanf("%d", &numero_valores);
 
-int main()
-{
+    long long int valores[numero_valores];
+    long long int resultado = 0;
+
+    for (int i = 0; i < numero_valores; i++) {
+        printf("Digite o valor %d: ", i + 1);
+        scanf("%lld", &valores[i]);
+    }
+
     int escolha;
-    inicio:
-    printf("Qual operação você quer realizar? 1:Soma, 2:Substração, 3:Multiplicação, 4:Divisão\n");
+    printf("Qual operação você quer realizar? 1:Soma, 2:Subtração, 3:Multiplicação, 4:Divisão\n");
     scanf("%d", &escolha);
 
-    switch (escolha)
-    {
-    case 1:
-        printf("Digite o primeiro valor: ");
-        scanf("%d", &numero1);
-
-        printf("Digite o segundo valor: ");
-        scanf("%d", &numero2);
-
-        resultado = numero1 + numero2;
-        printf("Resultado: %d\n", resultado);
-        break;
-
-    case 2:
-        printf("Digite o primeiro valor: ");
-        scanf("%d", &numero1);
-
-        printf("Digite o segundo valor: ");
-        scanf("%d", &numero2);
-
-        resultado = numero1 - numero2;
-        printf("Resultado: %d\n", resultado);
-        break;
-    case 3:
-        printf("Digite o primeiro valor: ");
-        scanf("%d", &numero1);
-
-        printf("Digite o segundo valor:");
-        scanf("%d", &numero2);
-
-        resultado = numero1 * numero2;
-        printf("Resultado: %d\n", resultado);
-        break;
-
-    case 4:
-        do
-        {
-            printf("Digite o primeiro valor: ");
-            scanf("%d", &numero1);
-
-            printf("Digite o segundo valor:");
-            scanf("%d", &numero2);
-
-            if (numero2 == 0)
-            {
-                printf("Divisão por 0 não é permitida");
+    switch (escolha) {
+        case 1:
+            for (int i = 0; i < numero_valores; i++) {
+                resultado += valores[i];
             }
-        } while (numero2 == 0);
-        resultado = numero1 / numero2;
-        printf("Resultado: %d\n", resultado);
-        break;
+            printf("Resultado da Soma: %lld\n", resultado);
+            break;
 
-    default:
-        printf("Opção não reconhecida, selecione 1, 2, 3 ou 4.\n");
-    }
-    printf("Você deseja fazer mais uma operação? 1:Sim, 2:Não\n.");
-    scanf("%d", &escolha);
-    if (escolha == 1)
-    {
-        goto inicio;
-    }
-    else {
-        printf("Ok, feche o console.");
-    }
-    
+        case 2:
+            resultado = valores[0]; 
+            for (int i = 1; i < numero_valores; i++) {
+                resultado -= valores[i];
+            }
+            printf("Resultado da Subtração: %lld\n", resultado);
+            break;
 
+        case 3:
+            resultado = 1; 
+            for (int i = 0; i < numero_valores; i++) {
+                resultado *= valores[i];
+            }
+            printf("Resultado da Multiplicação: %lld\n", resultado);
+            break;
+
+        case 4:
+            resultado = valores[0]; 
+            for (int i = 1; i < numero_valores; i++) {
+                if (valores[i] == 0) {
+                    printf("Erro: Divisão por zero não é permitida.\n");
+                    return 1; 
+                }
+                resultado /= valores[i];
+            }
+            printf("Resultado da Divisão: %lld\n", resultado);
+            break;
+
+        default:
+            printf("Opção não reconhecida.\n");
+    }
 
     return 0;
 }
