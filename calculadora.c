@@ -10,8 +10,9 @@ int main()
     printf("Qual operação você quer realizar? 1:Soma, 2:Substração, 3:Multiplicação, 4:Divisão\n");
     scanf("%d", &escolha);
 
-    if (escolha == 1)
+    switch (escolha)
     {
+    case 1:
         printf("Digite o primeiro valor: ");
         scanf("%d", &numero1);
 
@@ -20,9 +21,9 @@ int main()
 
         resultado = numero1 + numero2;
         printf("Resultado: %d\n", resultado);
-    }
-    else if (escolha == 2)
-    {
+        break;
+
+    case 2:
         printf("Digite o primeiro valor: ");
         scanf("%d", &numero1);
 
@@ -31,8 +32,8 @@ int main()
 
         resultado = numero1 - numero2;
         printf("Resultado: %d\n", resultado);
-    }
-    else if (escolha == 3) {
+        break;
+    case 3:
         printf("Digite o primeiro valor: ");
         scanf("%d", &numero1);
 
@@ -41,21 +42,29 @@ int main()
 
         resultado = numero1 * numero2;
         printf("Resultado: %d\n", resultado);
-    }
-    else if (escolha == 4) {
+        break;
+
+    case 4:
         printf("Digite o primeiro valor: ");
         scanf("%d", &numero1);
-        
+
         printf("Digite o segundo valor:");
         scanf("%d", &numero2);
 
-        resultado = numero1 / numero2;
-        printf("Resultado: %d\n", resultado);
-    }
-    else
-    {
-        printf("Escolha inválida\n");
+        if (numero2 != 0)
+        {
+            resultado = numero1 / numero2;
+            printf("Resultado: %d\n", resultado);
+        }
+        else
+        {
+            printf("Divisão por 0 não é permitida");
+        }
+        break;
+
+    default:
+        printf("Opção não reconhecida, selecione 1, 2, 3 ou 4.\n");
     }
 
-    return 0;
-}
+            return 0;
+    }
