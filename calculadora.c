@@ -7,6 +7,7 @@ int resultado;
 int main()
 {
     int escolha;
+    inicio:
     printf("Qual operação você quer realizar? 1:Soma, 2:Substração, 3:Multiplicação, 4:Divisão\n");
     scanf("%d", &escolha);
 
@@ -65,6 +66,17 @@ int main()
     default:
         printf("Opção não reconhecida, selecione 1, 2, 3 ou 4.\n");
     }
+    printf("Você deseja fazer mais uma operação? 1:Sim, 2:Não\n.");
+    scanf("%d", &escolha);
+    if (escolha == 1)
+    {
+        goto inicio;
+    }
+    else {
+        printf("Ok, feche o console.");
+    }
+    
+
 
     return 0;
 }
