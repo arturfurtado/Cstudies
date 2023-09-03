@@ -7,7 +7,7 @@ int resultado;
 int main()
 {
     int escolha;
-    printf("Qual operação você quer realizar? 1:Soma, 2:Substração\n");
+    printf("Qual operação você quer realizar? 1:Soma, 2:Substração, 3:Multiplicação, 4:Divisão\n");
     scanf("%d", &escolha);
 
     if (escolha == 1)
@@ -30,6 +30,26 @@ int main()
         scanf("%d", &numero2);
 
         resultado = numero1 - numero2;
+        printf("Resultado: %d\n", resultado);
+    }
+    else if (escolha == 3) {
+        printf("Digite o primeiro valor: ");
+        scanf("%d", &numero1);
+
+        printf("Digite o segundo valor:");
+        scanf("%d", &numero2);
+
+        resultado = numero1 * numero2;
+        printf("Resultado: %d\n", resultado);
+    }
+    else if (escolha == 4) {
+        printf("Digite o primeiro valor: ");
+        scanf("%d", &numero1);
+        
+        printf("Digite o segundo valor:");
+        scanf("%d", &numero2);
+
+        resultado = numero1 / numero2;
         printf("Resultado: %d\n", resultado);
     }
     else
