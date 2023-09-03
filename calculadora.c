@@ -8,11 +8,22 @@ int main() {
     long long int valores[numero_valores];
     long long int resultado = 0;
 
+    escolha:
     for (int i = 0; i < numero_valores; i++) {
         printf("Digite o valor %d: ", i + 1);
         scanf("%lld", &valores[i]);
-    }
+       
+}
+//      if (i = 1)
+// {
+//     printf("É necessário mais de dois valores para realizar uma operação");
+//     goto escolha;
+//     } else {
+//         goto inicio;
+//     }
 
+
+    inicio:
     int escolha;
     printf("Qual operação você quer realizar? 1:Soma, 2:Subtração, 3:Multiplicação, 4:Divisão\n");
     scanf("%d", &escolha);
